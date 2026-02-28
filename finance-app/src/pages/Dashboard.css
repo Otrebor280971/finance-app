@@ -1,0 +1,23 @@
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+.Dashboard {
+    background-color: #BAD5DE;
+    color: #1a1a2e;
+}
+
+.card {
+    background-color: #79CEEB;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+}
