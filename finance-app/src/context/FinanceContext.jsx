@@ -13,7 +13,6 @@ export const FinanceProvider = ({ children }) => {
     "Comida",
     "Transporte",
     "Servicios",
-    "Ocio",
   ]);
 
   useEffect(() => {
