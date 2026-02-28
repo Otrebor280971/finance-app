@@ -6,18 +6,60 @@ html, body, #root {
 .Dashboard {
     background-color: #BAD5DE;
     color: #1a1a2e;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .card {
     background-color: #79CEEB;
 }
 
+.card h2 {
+    color: white;
+}
+
 .header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%
 }
 
 .body {
     display: flex;
     flex-direction: row;
+    gap: 50px;
 }
+
+.Score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+.score-bar {
+    position: relative;
+    width: 150px;
+    height: 20px;
+}
+
+.background-score {
+    background-color: #718D6D;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.score-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #52BB44;
+    height: 100%;
+    width: 90%; /* aquí controlas el progreso */
+    border-radius: 10px;
+}
+
