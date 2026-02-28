@@ -1,6 +1,6 @@
 //import GastosRecientes from "../components/GastosRecientes";
 import ScoreIndicator from "../components/ScoreIndicator";
-import Metas from "../components/Metas";
+import Metas from "./Metas";
 import ResumenCard from "../components/ResumenCard.jsx";
 
 const Dashboard = () => {

@@ -115,17 +115,20 @@ html, body, #root {
   transform: scale(0.97);
 }
 
-.btn-regresar {
-  position: absolute;
-  top: 16px;
-  left: 20px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
+.back-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: color 0.2s ease;
 }
 
-.btn-regresar:hover {
-  color: rgb(172, 157, 157);
+.back-link:hover{
+    color: rgb(172, 157, 157);
+    text-decoration: none;
+}
+
+.header-nav {
+  margin-bottom: 30px;
+  width: 100%;
 }

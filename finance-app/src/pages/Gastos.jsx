@@ -5,7 +5,9 @@ export default function Gastos() {
   return (
     
     <div className="Gastos">
-        <span className="btn-regresar">Regresar</span>
+        <div className="header-nav">
+            <a href="/" className="back-link">Regresar</a>
+        </div>
         <div className="Tabla1">
             <div className="card">
                 <h1>Añadir gastos</h1>
