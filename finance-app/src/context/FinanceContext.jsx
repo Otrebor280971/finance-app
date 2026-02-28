@@ -15,7 +15,7 @@ export const FinanceProvider = ({ children }) => {
   const [metas, setMetas] = useState([]);
   const [categorias, setCategorias] = useState(initialCategorias);
 
-  // 🔹 CARGAR DATOS
+  //  CARGAR DATOS
   useEffect(() => {
     try {
       const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -136,6 +136,11 @@ export const FinanceProvider = ({ children }) => {
   const addMeta = (meta) =>
     setMetas(prev => [...prev, { ...meta, id: uuidv4() }]);
 
+    const updateMeta = (updated) =>
+    setMetas(prev =>
+        prev.map(m => (m.id === updated.id ? updated : m))
+    );
+
   const deleteMeta = (id) =>
     setMetas(prev => prev.filter(m => m.id !== id));
 
@@ -195,6 +200,7 @@ export const FinanceProvider = ({ children }) => {
         deleteGasto,
         updateGasto,
         addMeta,
+        updateMeta,
         deleteMeta,
         addCategoria,
       }}
