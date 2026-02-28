@@ -1,0 +1,160 @@
+.ingresos-page {
+  background-color: #BAD5DE;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  position: absolute; 
+  top: 0;
+  left: 0;
+}
+
+.header-nav {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.back-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.back-link:hover{
+    color: rgb(172, 157, 157);
+    text-decoration: none;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+}
+
+.card {
+  background-color: #79CEEB;
+  border-radius: 20px;
+  padding: 30px;
+  
+  width: 350px; 
+  flex: 0 0 auto;
+  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  color: #1E1E1E;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group label {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+input[type="date"] {
+  color-scheme: light;
+  color: black;
+  cursor: text;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #F0F8FF;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+  color: black;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-group label {
+  width: auto;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.checkbox-box {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  appearance: none;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.checkbox-box:checked {
+  background-color: #4CAF50;
+}
+
+.btn-save {
+  background-color: #345B68;
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.btn-save:hover{
+    background-color: #1A2D34;
+}
+
+@media (max-width: 800px) {
+  .ingresos-page {
+    position: relative;
+    width: 100%;
+  }
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
