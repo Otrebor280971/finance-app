@@ -133,3 +133,16 @@ html, body, #root {
   top: 20px;
   left: 20px;
 }
+
+.field-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+.field-select {
+  height: 36px;
+  width: 100%;
+}

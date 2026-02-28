@@ -15,7 +15,7 @@ export const FinanceProvider = ({ children }) => {
   const [metas, setMetas] = useState([]);
   const [categorias, setCategorias] = useState(initialCategorias);
 
-  // 🔹 CARGAR DATOS
+  //  CARGAR DATOS
   useEffect(() => {
     try {
       const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
