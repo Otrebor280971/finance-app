@@ -1,4 +1,5 @@
 import GastosRecientes from "../components/GastosRecientes";
+import HistorialGastos from "./HistorialGastos.jsx";
 import ScoreIndicator from "../components/ScoreIndicator";
 import Metas from "../components/Metas";
 import ResumenCard from "../components/ResumenCard.jsx";
