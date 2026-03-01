@@ -106,7 +106,6 @@ const Dashboard = () => {
           <div className="balance-card">
             <p className="balance-header">Balance general</p>
             <div className="balance-footer">
-              <span className="balance-subtitle">Movimientos anteriores</span>
               <span className="balance-monto">
                 ${ahorroMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
               </span>
