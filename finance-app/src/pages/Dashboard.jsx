@@ -1,29 +1,125 @@
-import GastosRecientes from "../components/GastosRecientes";
-import ScoreIndicator from "../components/ScoreIndicator";
-import Metas from "../components/Metas";
-import ResumenCard from "../components/ResumenCard.jsx";
+import { Link } from "react-router-dom";
+import { useFinance } from "../context/FinanceContext";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const {
+    score,
+    totalGastoMensual,
+    totalIngresoMensual,
+    ahorroMensual,
+    metas,
+    gastos,
+  } = useFinance();
+
   return (
     <div className="Dashboard">
-      <div className="header"> 
-        <h1>Bienvenido Roberto</h1>
-        <ScoreIndicator/>
+      {/* ── HEADER ── */}
+      <div className="header">
+        <h1>Bienvenido, <strong>Roberto</strong></h1>
+
+        <div className="Score">
+          <span className="score-label">Score</span>
+          <div className="score-row">
+            <div className="score-bar">
+              <div
+                className="score-color"
+                style={{ width: `${score}%` }}
+              />
+            </div>
+            <span className="score-number">{score}</span>
+          </div>
+        </div>
       </div>
+
+      {/* ── BODY ── */}
       <div className="body">
-        <div className="card Gastos"> <GastosRecientes/> </div>
-        <div className="sndColumn"> 
-          <div className="card metas" > <Metas/> </div>
-          <div className="card"> <ResumenCard titulo="Ingresos" pagina="/Ingresos" className="element"/> </div>
-          <div className="card"> <ResumenCard titulo="Gastos" pagina="/Gastos" className="element"/> </div>
-          <div className="card"> <ResumenCard titulo="Balance general" pagina="/Historial" className="element"/> </div>
+        {/* ── LEFT: Gastos Recientes ── */}
+        <div className="gastos-card">
+          <h2>Gastos recientes</h2>
+          <div className="chart-placeholder">
+            <div className="chart-circle" />
+          </div>
+          <div className="gastos-footer">
+            <Link to="/gastos" className="ver-mas">Ver más</Link>
+            <div className="legend-box" />
+          </div>
+        </div>
+
+        {/* ── RIGHT COLUMN ── */}
+        <div className="sndColumn">
+          {/* Mis metas */}
+          <div className="metas-card">
+            <h2>Mis metas</h2>
+
+            {metas.length === 0 ? (
+              <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.9rem" }}>
+                Aún no tienes metas registradas.
+              </p>
+            ) : (
+              metas.slice(0, 3).map((meta) => {
+                const progreso = Math.min(
+                  ((totalIngresoMensual - totalGastoMensual) /
+                    Number(meta.cantidad)) *
+                    100,
+                  100
+                );
+                return (
+                  <div key={meta.id} className="meta-item-dash">
+                    <span className="meta-nombre">{meta.concepto}</span>
+                    <div className="meta-bar-bg">
+                      <div
+                        className="meta-bar-fill"
+                        style={{ width: `${Math.max(progreso, 5)}%` }}
+                      />
+                    </div>
+                    <span className="meta-valor">{Math.round(progreso)}</span>
+                  </div>
+                );
+              })
+            )}
+
+            <Link to="/metas">
+              <button className="metas-add-btn">+</button>
+            </Link>
+          </div>
+
+          {/* Gastos e Ingresos */}
+          <div className="summary-row">
+            <div className="resumen-card">
+              <h3>Gastos</h3>
+              <div className="resumen-card-footer">
+                <Link to="/gastos" className="resumen-plus">+</Link>
+                <span className="resumen-monto monto-gastos">
+                  ${totalGastoMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
+                </span>
+              </div>
+            </div>
+            <div className="resumen-card">
+              <h3>Ingresos</h3>
+              <div className="resumen-card-footer">
+                <Link to="/ingresos" className="resumen-plus">+</Link>
+                <span className="resumen-monto monto-ingresos">
+                  ${totalIngresoMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Balance general */}
+          <div className="balance-card">
+            <p className="balance-header">Balance general</p>
+            <div className="balance-footer">
+              <span className="balance-subtitle">Movimientos anteriores</span>
+              <span className="balance-monto">
+                ${ahorroMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-
 };
 
 export default Dashboard;
-
