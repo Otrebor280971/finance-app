@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+.transacciones-page {
+  background-color: #BAD5DE;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.transacciones-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.transacciones-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1a2e;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.back-link {
+  color: #1a1a2e;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #4fbfe0;
+}
+
+/* ─── SUMMARY STRIP ─── */
+.summary-strip {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.summary-chip {
+  flex: 1;
+  background-color: #79CEEB;
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-chip__label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(26, 26, 46, 0.6);
+}
+
+.summary-chip__value {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #1a1a2e;
+}
+
+.summary-chip__value.ingreso  { color: #27ae60; }
+.summary-chip__value.gasto    { color: #c0392b; }
+.summary-chip__value.balance.positivo { color: #1a5c78; }
+.summary-chip__value.balance.negativo { color: #c0392b; }
+
+/* ─── FILTERS ─── */
+.filtros-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 2px solid #6ab8d0;
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #3a7fa0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtro-btn:hover,
+.filtro-btn.activo {
+  background-color: #4fbfe0;
+  color: white;
+  border-color: #4fbfe0;
+}
+
+.filtro-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #79CEEB;
+  border: 2px solid #6ab8d0;
+  border-radius: 10px;
+  padding: 8px 36px 8px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #3a7fa0;
+  cursor: pointer;
+  outline: none;
+  margin-left: auto;
+}
+
+/* ─── TABLE ─── */
+.tabla-wrapper {
+  background-color: #ffffff;
+  border: 2px solid #6ab8d0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.tabla-transacciones {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla-transacciones thead tr {
+  border-bottom: 2px solid #6ab8d0;
+}
+
+.tabla-transacciones th {
+  padding: 14px 20px;
+  font-weight: 800;
+  color: #1a1a2e;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  background-color: #f0f9fc;
+}
+
+.tabla-transacciones th:not(:last-child) {
+  border-right: 2px solid #6ab8d0;
+}
+
+.tabla-transacciones td {
+  padding: 13px 20px;
+  color: #1a1a2e;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #d0e8f0;
+}
+
+.tabla-transacciones td:not(:last-child) {
+  border-right: 1px solid #d0e8f0;
+}
+
+.tabla-transacciones tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-transacciones tbody tr:hover {
+  background-color: #f0f9fc;
+}
+
+/* tipo badge */
+.tipo-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tipo-badge.ingreso {
+  background-color: #d4f4e2;
+  color: #1e7e47;
+}
+
+.tipo-badge.gasto {
+  background-color: #fde8e8;
+  color: #c0392b;
+}
+
+.monto-ingreso { color: #27ae60; font-weight: 800; }
+.monto-gasto   { color: #c0392b; font-weight: 800; }
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #888;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* categoria dot */
+.cat-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .transacciones-page {
+    padding: 24px 16px;
+  }
+  .summary-strip {
+    flex-direction: column;
+  }
+  .transacciones-title {
+    font-size: 22px;
+  }
+}
