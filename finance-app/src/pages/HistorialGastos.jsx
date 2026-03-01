@@ -16,12 +16,10 @@ export default function HistorialGastos() {
 
   const [filtro, setFiltro] = useState("");
 
-  // 🔹 Fecha actual
   const ahora = new Date();
   const mesActual = ahora.getMonth();
   const anioActual = ahora.getFullYear();
 
-  // 🔹 Gastos SOLO del mes actual
   const gastosDelMes = useMemo(() => {
     return gastos.filter(g => {
       const fecha = new Date(g.fecha);
@@ -32,13 +30,11 @@ export default function HistorialGastos() {
     });
   }, [gastos, mesActual, anioActual]);
 
-  // 🔹 Filtro por categoría (visual)
   const gastosFiltrados = useMemo(() => {
     if (!filtro) return gastosDelMes;
     return gastosDelMes.filter(g => g.categoria === filtro);
   }, [gastosDelMes, filtro]);
 
-  // 🔹 Total del mes
   const totalMes = useMemo(() => {
     return gastosDelMes.reduce(
       (acc, g) => acc + Number(g.monto),
@@ -46,7 +42,6 @@ export default function HistorialGastos() {
     );
   }, [gastosDelMes]);
 
-  // 🔹 Datos para gráfica (SIEMPRE del mes completo)
   const datosGrafica = useMemo(() => {
     const agrupado = {};
 
@@ -86,7 +81,6 @@ export default function HistorialGastos() {
   return (
     <div className="historial-page">
       <div className="historial-header">
-        {/* ⚠️ IMPORTANTE: no usar <a href="/"> si usas Router */}
         <a href="/" className="back-link">Regresar</a>
 
         <h1 className="historial-title">Historial de gastos</h1>

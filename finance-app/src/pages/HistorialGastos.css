@@ -94,8 +94,8 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  min-width: 220px;
-  width: 220px;
+  min-width: 320px;
+  width: 320px;
   min-height: 460px;
 }
 
