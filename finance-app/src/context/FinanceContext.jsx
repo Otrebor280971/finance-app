@@ -180,20 +180,39 @@ export const FinanceProvider = ({ children }) => {
 
   const ahorroMensual = totalIngresoMensual - totalGastoMensual;
 
-  const calcularScore = () => {
+    const calcularScore = () => {
     if (totalIngresoMensual === 0) return 0;
 
+    let score = 0;
+
     const tasaAhorro = ahorroMensual / totalIngresoMensual;
-    let score = 50;
 
-    if (tasaAhorro >= 0.2) score += 30;
-    else if (tasaAhorro >= 0.1) score += 15;
+    if (tasaAhorro >= 0.3) score += 40;
+    else if (tasaAhorro >= 0.2) score += 30;
+    else if (tasaAhorro >= 0.1) score += 20;
+    else if (tasaAhorro > 0) score += 10;
 
-    if (totalGastoMensual <= totalIngresoMensual * 0.8) score += 10;
-    if (metas.length > 0) score += 10;
+    if (totalGastoMensual <= totalIngresoMensual * 0.8) {
+        score += 20;
+    } else if (totalGastoMensual <= totalIngresoMensual) {
+        score += 10;
+    }
 
-    return Math.min(score, 100);
-  };
+    if (metas.length > 0) {
+        score += 15;
+    }
+
+    if (metas.length > 0 && ahorroMensual > 0) {
+        const progresoPromedio = metas.reduce((acc, meta) => {
+        const porcentaje = ahorroMensual / Number(meta.cantidad || 1);
+        return acc + Math.min(porcentaje, 1);
+        }, 0) / metas.length;
+
+        score += progresoPromedio * 25;
+    }
+
+    return Math.min(Math.round(score), 100);
+    };
 
   const score = calcularScore();
 
