@@ -12,11 +12,12 @@ const Dashboard = () => {
         <ScoreIndicator/>
       </div>
       <div className="body">
-        <div className="card"> <GastosRecientes/> </div>
+        <div className="card Gastos"> <GastosRecientes/> </div>
         <div className="sndColumn"> 
-          <div className="card"> <Metas/> </div>
+          <div className="card metas" > <Metas/> </div>
           <div className="card"> <ResumenCard titulo="Ingresos" pagina="/Ingresos" className="element"/> </div>
           <div className="card"> <ResumenCard titulo="Gastos" pagina="/Gastos" className="element"/> </div>
+          <div className="card"> <ResumenCard titulo="Balance general" pagina="/Historial" className="element"/> </div>
         </div>
       </div>
     </div>

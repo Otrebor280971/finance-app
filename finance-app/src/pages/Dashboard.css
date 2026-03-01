@@ -24,7 +24,8 @@ html, body, #root {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 95%
+    width: 95%;
+    margin-bottom: 50px
 }
 
 .body {
@@ -61,5 +62,13 @@ html, body, #root {
     height: 100%;
     width: 90%; /* aquí controlas el progreso */
     border-radius: 10px;
+}
+
+.metas {
+    margin-bottom: 50px;
+}
+
+.sndColumn {
+    gap: 100px;
 }
 
