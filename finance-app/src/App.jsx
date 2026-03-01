@@ -9,8 +9,8 @@ import HistorialGastos from "./pages/HistorialGastos";
 
 function App() {
   return (
-    <BrowserRouter>
-      <FinanceProvider>
+    <FinanceProvider>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
@@ -20,8 +20,8 @@ function App() {
             <Route path="historial-gastos" element={<HistorialGastos />} />
           </Route>
         </Routes>
-      </FinanceProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </FinanceProvider>
   );
 }
 
