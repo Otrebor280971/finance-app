@@ -1,0 +1,157 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.historial-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #BAD5DE;
+  font-family: 'Nunito', sans-serif;
+  padding: 40px 48px;
+}
+
+/* Header */
+.historial-header {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.historial-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
+/* Filtro select */
+.filtro-wrapper {
+  position: relative;
+}
+
+.filtro-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #79CEEB;
+  border: 2px solid #6ab8d0;
+  border-radius: 10px;
+  padding: 10px 44px 10px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #3a7fa0;
+  cursor: pointer;
+  outline: none;
+  min-width: 220px;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+.filtro-select:focus {
+  border-color: #4aa0bf;
+}
+
+.historial-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* Tarjeta mes */
+.mes-card {
+  background-color: #79CEEB;
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-width: 220px;
+  width: 220px;
+  min-height: 460px;
+}
+
+.mes-titulo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+}
+
+.mes-circle {
+  width: 150px;
+  height: 150px;
+  background-color: #b0c4cc;
+  border-radius: 50%;
+  margin-top: 16px;
+}
+
+.mes-rect {
+  width: 80px;
+  height: 44px;
+  background-color: #b0c4cc;
+  border-radius: 10px;
+  margin-top: auto;
+}
+
+/* Tabla */
+.tabla-wrapper {
+  flex: 1;
+  border: 2px solid #6ab8d0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  min-height: 460px;
+}
+
+.tabla-gastos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla-gastos thead tr {
+  border-bottom: 2px solid #6ab8d0;
+}
+
+.tabla-gastos th {
+  padding: 14px 20px;
+  font-weight: 800;
+  color: #1a1a2e;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+/* Separadores verticales entre columnas del header */
+.tabla-gastos th:not(:last-child) {
+  border-right: 2px solid #6ab8d0;
+}
+
+.tabla-gastos td {
+  padding: 12px 20px;
+  color: #1a1a2e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tabla-gastos td:not(:last-child) {
+  border-right: 1px solid #d0e8f0;
+}
+
+.tabla-gastos tbody tr:hover {
+  background-color: #f0f9fc;
+}

@@ -7,7 +7,7 @@ function GastosRecientes() {
         <div>
             <h2>Gastos recientes</h2>
             {/*TODO: componente GraficaPastel*/}
-            <Link to="/HistorialGastos">
+            <Link to="historial-gastos">
                 <p>Ver más</p>
             </Link>
             {/*TODO: componente Leyenda*/}
