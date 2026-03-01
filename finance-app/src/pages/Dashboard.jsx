@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useFinance } from "../context/FinanceContext";
 import GastosRecientes from "../components/GastosRecientes";
-import HistorialGastos from "./HistorialGastos.jsx";
 import ScoreIndicator from "../components/ScoreIndicator";
 import Metas from "../components/Metas";
 import ResumenCard from "../components/ResumenCard.jsx";
@@ -14,7 +13,6 @@ const Dashboard = () => {
     totalIngresoMensual,
     ahorroMensual,
     metas,
-    gastos,
   } = useFinance();
 
   return (
@@ -102,15 +100,25 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Balance general */}
-          <div className="balance-card">
-            <p className="balance-header">Balance general</p>
-            <div className="balance-footer">
-              <span className="balance-monto">
-                ${ahorroMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
-              </span>
+          {/* Balance general — con link a transacciones */}
+          <Link to="/transacciones" style={{ textDecoration: "none" }}>
+            <div className="balance-card" style={{ cursor: "pointer", transition: "opacity 0.2s" }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <p className="balance-header">Balance general</p>
+                <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "rgba(26,26,46,0.55)" }}>
+                  Ver transacciones →
+                </span>
+              </div>
+              <div className="balance-footer">
+                <span className="balance-monto">
+                  ${ahorroMensual.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
+                </span>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
