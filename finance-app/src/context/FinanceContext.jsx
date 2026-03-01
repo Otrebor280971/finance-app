@@ -7,7 +7,11 @@ export const useFinance = () => useContext(FinanceContext);
 
 const STORAGE_KEY = "financeData";
 
-const initialCategorias = ["Comida", "Transporte", "Servicios"];
+const initialCategorias = [
+  { id: uuidv4(), nombre: "Comida", color: "#FF6384" },
+  { id: uuidv4(), nombre: "Transporte", color: "#36A2EB" },
+  { id: uuidv4(), nombre: "Servicios", color: "#FFCE56" },
+];
 
 export const FinanceProvider = ({ children }) => {
   const [ingresos, setIngresos] = useState([]);
@@ -146,11 +150,21 @@ export const FinanceProvider = ({ children }) => {
 
   // 🔹 CATEGORÍAS
 
-  const addCategoria = (categoria) => {
-    if (!categorias.includes(categoria)) {
-      setCategorias(prev => [...prev, categoria]);
-    }
-  };
+    const addCategoria = (nombre, color) => {
+        if (!nombre) return;
+
+        const existe = categorias.some(cat => cat.nombre === nombre);
+        if (existe) return;
+
+        setCategorias(prev => [
+            ...prev,
+            {
+            id: uuidv4(),
+            nombre,
+            color: color || "#999999",
+            },
+        ]);
+    };
 
   // 🔹 CÁLCULOS
 
