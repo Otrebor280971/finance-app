@@ -1,0 +1,100 @@
+.metas-widget {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .metas-widget__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .metas-widget__header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  .metas-widget__link {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .metas-widget__link:hover {
+    color: white;
+  }
+  
+  .metas-widget__empty {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.88rem;
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .metas-widget__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .metas-widget__item {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .metas-widget__item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .metas-widget__concepto {
+    color: white;
+    font-size: 0.92rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 78%;
+  }
+  
+  .metas-widget__porcentaje {
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  
+  .metas-widget__bar-bg {
+    width: 100%;
+    height: 9px;
+    background-color: rgba(0, 0, 0, 0.18);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .metas-widget__bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+  }
+  
+  .metas-widget__label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.78rem;
+  }
+  
+  .metas-widget__label strong {
+    color: white;
+  }
