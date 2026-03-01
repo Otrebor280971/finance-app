@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useFinance } from "../context/FinanceContext";
+import GastosRecientes from "../components/GastosRecientes";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -35,16 +36,7 @@ const Dashboard = () => {
       {/* ── BODY ── */}
       <div className="body">
         {/* ── LEFT: Gastos Recientes ── */}
-        <div className="gastos-card">
-          <h2>Gastos recientes</h2>
-          <div className="chart-placeholder">
-            <div className="chart-circle" />
-          </div>
-          <div className="gastos-footer">
-            <Link to="/gastos" className="ver-mas">Ver más</Link>
-            <div className="legend-box" />
-          </div>
-        </div>
+        <GastosRecientes />
 
         {/* ── RIGHT COLUMN ── */}
         <div className="sndColumn">
