@@ -14,6 +14,7 @@ const initialCategorias = [
 ];
 
 export const FinanceProvider = ({ children }) => {
+    const [cargado, setCargado] = useState(false);
   const [ingresos, setIngresos] = useState([]);
   const [gastos, setGastos] = useState([]);
   const [metas, setMetas] = useState([]);
@@ -31,11 +32,15 @@ export const FinanceProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Error cargando datos:", error);
+    } finally {
+        setCargado(true);
     }
   }, []);
 
   // 🔹 GUARDAR DATOS
   useEffect(() => {
+    if (!cargado) return;
+    
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({ ingresos, gastos, metas, categorias })
@@ -168,15 +173,35 @@ export const FinanceProvider = ({ children }) => {
 
   // 🔹 CÁLCULOS
 
-  const totalIngresoMensual = ingresos.reduce(
+    const ahora = new Date();
+    const mesActual = ahora.getMonth();
+    const anioActual = ahora.getFullYear();
+
+    const ingresosDelMes = ingresos.filter(i => {
+    const fecha = new Date(i.fecha);
+    return (
+        fecha.getMonth() === mesActual &&
+        fecha.getFullYear() === anioActual
+    );
+    });
+
+    const gastosDelMes = gastos.filter(g => {
+    const fecha = new Date(g.fecha);
+    return (
+        fecha.getMonth() === mesActual &&
+        fecha.getFullYear() === anioActual
+    );
+    });
+
+    const totalIngresoMensual = ingresosDelMes.reduce(
     (acc, curr) => acc + (curr.montoMensual || 0),
     0
-  );
+    );
 
-  const totalGastoMensual = gastos.reduce(
+    const totalGastoMensual = gastosDelMes.reduce(
     (acc, curr) => acc + (Number(curr.monto) || 0),
     0
-  );
+    );
 
   const ahorroMensual = totalIngresoMensual - totalGastoMensual;
 

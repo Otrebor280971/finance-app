@@ -30,13 +30,10 @@ export default function Gastos() {
     const handleGuardarCategoria = () => {
         if (!nombreCat) return;
 
-        addCategoria({
-            nombre: nombreCat,
-            color: colorCat, 
-        });
+        addCategoria(nombreCat, colorCat);
 
         setNombreCat("");
-        setColorCat("#345B68");
+        setColorCat("#345B86")
     };
 
     return (
